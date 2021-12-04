@@ -8,7 +8,7 @@ const Nav = props => {
 
     return (
         <div className={classes.nav}>
-            {/* <MobileHeader /> */}
+            <MobileHeader />
             <MobileNav />
         </div>
     );

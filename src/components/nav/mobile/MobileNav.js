@@ -17,24 +17,34 @@ const MobileNav = props => {
     return (
         <>
             {displaySidebar &&  <><div className={classes.backdrop} onClick={displaySidebarHandler} /> <Sidebar /> </>}
-            <Navbar fixed="bottom">
-            <Nav>
+            <Navbar bg="light" fixed="bottom">
+            <Nav className="justify-content-center" >
                 <Nav.Item>
-                    <Button variant="link" onClick={displaySidebarHandler} >
-                        <br />Menu
-                    </Button>
+                    <Nav.Link>
+                        <Button variant="link" onClick={displaySidebarHandler} >
+                            Menu
+                        </Button>
+                    </Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <s>Prev</s>
+                    <Nav.Link href="#">
+                        <s>Prev</s>
+                    </Nav.Link>  
                 </Nav.Item>
                 <Nav.Item>
-                    <s>Back</s>
+                    <Nav.Link href="#">
+                        <s>Back</s>
+                    </Nav.Link>  
                 </Nav.Item>
                 <Nav.Item>
-                    <s>Next</s>
+                    <Nav.Link href="#">
+                        <s>Next</s>
+                    </Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <s>Search</s>
+                    <Nav.Link href="#">
+                        <s>Search</s>
+                    </Nav.Link>
                 </Nav.Item>
             </Nav>
             

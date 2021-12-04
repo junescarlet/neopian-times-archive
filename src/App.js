@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import './App.module.scss';
+import Button from 'react-bootstrap/Button';
 
 import Nav from './components/nav/Nav';
 
@@ -21,6 +22,9 @@ function App() {
         >
           Learn React
         </a>
+        <Button variant="link"  >
+                        <br />Menu
+                    </Button>
       </header>
     </div>
   );
