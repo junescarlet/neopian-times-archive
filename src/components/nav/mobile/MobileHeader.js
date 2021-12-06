@@ -1,10 +1,10 @@
 import React from 'react';
 
-import classes from './MobileHeader.module.scss'
+import './MobileHeader.scss'
 
 const MobileHeader = props => {
     return (
-        <div className={classes.mobileHeader}>
+        <div className="mobileHeader">
             <h1>The Neopian Times</h1>
         </div>
     );

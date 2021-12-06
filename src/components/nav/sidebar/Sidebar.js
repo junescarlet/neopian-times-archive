@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-import classes from './Sidebar.module.scss'
+import classes from './Sidebar.scss'
 
 const Sidebar = (props) => {
     

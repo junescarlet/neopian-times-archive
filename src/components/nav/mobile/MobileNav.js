@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 
-import classes from './MobileNav.module.scss'
+import classes from './MobileNav.scss'
 import Sidebar from '../sidebar/Sidebar';
 
 
@@ -17,8 +17,8 @@ const MobileNav = props => {
     return (
         <>
             {displaySidebar &&  <><div className={classes.backdrop} onClick={displaySidebarHandler} /> <Sidebar /> </>}
-            <Navbar bg="light" fixed="bottom">
-            <Nav className="justify-content-center" >
+            <Navbar className="justify-content-center" bg="light" fixed="bottom">
+            <Nav className="justify-content-center">
                 <Nav.Item>
                     <Nav.Link>
                         <Button variant="link" onClick={displaySidebarHandler} >

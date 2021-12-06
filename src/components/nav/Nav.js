@@ -1,6 +1,6 @@
 import React from "react";
 
-import classes from './Nav.module.scss';
+import classes from './Nav.scss';
 import MobileHeader from './mobile/MobileHeader';
 import MobileNav from './mobile/MobileNav';
 
