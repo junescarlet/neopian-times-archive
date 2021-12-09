@@ -17,36 +17,36 @@ const MobileNav = props => {
     return (
         <>
             {displaySidebar &&  <><div className="backdrop" onClick={displaySidebarHandler} /> <Sidebar /> </>}
-            <Navbar className="justify-content-center" bg="light" fixed="bottom">
-            <Nav className="justify-content-center">
-                <Nav.Item>
-                    <Nav.Link>
-                        <Button variant="link" onClick={displaySidebarHandler} >
-                            Menu
-                        </Button>
-                    </Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link href="#">
-                        <s>Prev</s>
-                    </Nav.Link>  
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link href="#">
-                        <s>Back</s>
-                    </Nav.Link>  
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link href="#">
-                        <s>Next</s>
-                    </Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link href="#">
-                        <s>Search</s>
-                    </Nav.Link>
-                </Nav.Item>
-            </Nav>
+            <Navbar bg="light" fixed="bottom">
+                <Nav justify>
+                    <Nav.Item>
+                        <Nav.Link>
+                            <Button variant="link" onClick={displaySidebarHandler} >
+                                Menu
+                            </Button>
+                        </Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                        <Nav.Link href="#">
+                            <s>Prev</s>
+                        </Nav.Link>  
+                    </Nav.Item>
+                    <Nav.Item>
+                        <Nav.Link href="#">
+                            <s>Back</s>
+                        </Nav.Link>  
+                    </Nav.Item>
+                    <Nav.Item>
+                        <Nav.Link href="#">
+                            <s>Next</s>
+                        </Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                        <Nav.Link href="#">
+                            <s>Search</s>
+                        </Nav.Link>
+                    </Nav.Item>
+                </Nav>
             
             {/* <ul>
                     <li>

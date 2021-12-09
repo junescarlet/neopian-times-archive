@@ -17,26 +17,17 @@ const DesktopNav = props => {
                     <Navbar.Brand href="#home">The Neopian Times</Navbar.Brand>
                     <Nav.Item>
                         <Nav.Link href="#">
-                            <s>Prev</s>
-                        </Nav.Link>  
-                    </Nav.Item>
-                    <Nav.Item>
-                        <Nav.Link href="#">
-                            <s>Back</s>
-                        </Nav.Link>  
-                    </Nav.Item>
-                    <Nav.Item>
-                        <Nav.Link href="#">
-                            <s>Next</s>
-                        </Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                        <Nav.Link href="#">
                             <s>Search</s>
                         </Nav.Link>
                     </Nav.Item>
                 </Nav>
             </Navbar>
+            <div className="prevArrow">
+                <s>Prev</s>
+            </div>
+            <div className="nextArrow">
+                <s>Next</s>
+            </div>
         </>
     );
 };
