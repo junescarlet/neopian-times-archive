@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from "react-router-dom";
 
 import './Sidebar.scss'
 
@@ -9,9 +9,9 @@ const Sidebar = (props) => {
     return (
         <nav className="sidebar">
             <ul>
-               <li><s>Home</s></li>
+               <li><Link to="/">Home</Link></li>
                <li><s>Archives</s></li>
-               <li><s>Editorial</s></li>
+               <li><Link to="editorial">Editorial</Link></li>
                <li><s>Articles</s></li>
                <li><s>Comics</s></li>
                <li><s>Short Stories</s></li>
