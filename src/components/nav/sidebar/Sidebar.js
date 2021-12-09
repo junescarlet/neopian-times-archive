@@ -1,13 +1,13 @@
 import React from 'react';
 
 
-import classes from './Sidebar.scss'
+import './Sidebar.scss'
 
 const Sidebar = (props) => {
     
 
     return (
-        <nav className={classes.sidebar}>
+        <nav className="sidebar">
             <ul>
                <li><s>Home</s></li>
                <li><s>Archives</s></li>
