@@ -13,3 +13,9 @@
     margin: auto;
     padding: 120px 0 0 0;
 }
+
+@media only screen and (min-width: 801px) {
+	.desktopSidebarWrapper {
+		margin: 0 0 0 200px;
+	}
+}
