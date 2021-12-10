@@ -19,6 +19,12 @@ function App() {
     }, []);
     console.log(staticTimesData);
 
+    const timesData = staticTimesData;
+
+    for (const item in timesData) {
+      console.log(item);
+    }
+
   return (
     <div className="App">
       <Nav />
@@ -26,13 +32,43 @@ function App() {
         <div className="ContentWrapper">
           <Header />
           <Outlet />
-          {staticTimesData.articles[0].Name}
-          
-          {/* {staticTimesData.map(piece =>
-                
-                <div key={piece.id}  id={piece.link}>
-                    <h2>{piece.title}</h2>
-                    <p>{piece.articles.Name}</p>
+          {/* {timesData.articles[0].Name} */}
+
+          {Object.keys(timesData).map((keyName, i) => (
+            <div key={keyName}>
+              {keyName}
+              {timesData[keyName].map((piece) => 
+                <div key={piece.Filename}>
+                    <h2>{piece.Name}</h2>
+                    <p>{piece.Desc}</p>
+                </div>
+              )}
+            </div>
+          ))}
+
+          {/* { Object.keys(result).map((item, i) => (
+                <div key={i} className="report">
+                       {result[item].map((media,ind) =>
+                         <div key={ind}>{media.name}</div>
+                      )}
+                </div>
+        ))} */}
+
+          {/* {Object.keys(subjects).map((keyName, i) => (
+              <li className="travelcompany-input" key={i}>
+                  <span className="input-label">key: {i} Name: {subjects[keyName]}</span>
+              </li>
+          ))} */}
+
+         
+          {/* {timesData.map(category =>
+                category
+          )}
+           */}
+          {/* {timesData.articles.map(piece =>
+                <div key={piece.Filename}>
+                    <h2>{piece.Name}</h2>
+                    <p>{piece.Desc}</p>
                 </div>
             )} */}
           <hr />
