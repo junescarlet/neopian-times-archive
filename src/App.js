@@ -1,12 +1,26 @@
 import React, { useState,  useEffect } from 'react';
 import './App.scss';
-import { Outlet } from "react-router-dom";
+import { Route, Routes, Outlet } from "react-router-dom";
 
 import Nav from './components/nav/Nav';
 import Header from './components/content/every/Header';
 import Footer from './components/content/every/Footer';
+import Home from './components/content/home/Home';
+import Editorial from './components/content/editorial/Editorial';
 
 function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="editorial" element={<Editorial />} />
+        
+      </Route>
+    </Routes>
+  );
+}
+
+function Layout() {
   const [staticTimesData, setStaticTimesData] = useState([]);
 
   useEffect(() => {
@@ -17,13 +31,13 @@ function App() {
       })
       .catch(err =>{ console.error(err => console.error(err))}); 
     }, []);
-    console.log(staticTimesData);
+    // console.log(staticTimesData);
 
     const timesData = staticTimesData;
 
-    for (const item in timesData) {
-      console.log(item);
-    }
+    // for (const item in timesData) {
+    //   console.log(item);
+    // }
 
   return (
     <div className="App">
@@ -36,7 +50,7 @@ function App() {
 
           {Object.keys(timesData).map((keyName, i) => (
             <div key={keyName}>
-              {keyName}
+              <h1>{keyName}</h1>
               {timesData[keyName].map((piece) => 
                 <div key={piece.Filename}>
                     <h2>{piece.Name}</h2>
@@ -81,6 +95,7 @@ function App() {
       </div>
     </div>
   );
+
 }
 
 export default App;
