@@ -7,20 +7,10 @@ import Header from './components/content/every/Header';
 import Footer from './components/content/every/Footer';
 import Home from './components/content/home/Home';
 import Editorial from './components/content/editorial/Editorial';
+import Thumbnails from './components/content/thumbnails/Thumbnails';
+import Section from './components/content/section/Section';
 
 function App() {
-  return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="editorial" element={<Editorial />} />
-        
-      </Route>
-    </Routes>
-  );
-}
-
-function Layout() {
   const [staticTimesData, setStaticTimesData] = useState([]);
 
   useEffect(() => {
@@ -39,6 +29,38 @@ function Layout() {
     //   console.log(item);
     // }
 
+
+  return (
+    <>
+    <Routes>
+      <Route path="/" element={<Layout timesData={staticTimesData} />}>
+        <Route index element={<Home timesData={timesData} />} />
+        <Route path="editorial" element={<Editorial />} />
+        <Route path="section" element={<Section timesData={timesData} />} >
+          <Route path=":sectionId" element={<Section />} />
+        </Route>
+
+        
+      </Route>
+    </Routes>
+    {Object.keys(timesData).map((keyName, i) => (
+      <div key={keyName}>
+        <h1>{keyName}</h1>
+        {timesData[keyName].map((piece) => 
+          <div key={piece.Filename}>
+              <h2>{piece.Name}</h2>
+              <p>{piece.Desc}</p>
+          </div>
+        )}
+      </div>
+    ))}
+    </>
+  );
+}
+
+function Layout(props) {
+  const {timesData} = props;
+  
   return (
     <div className="App">
       <Nav />
@@ -46,46 +68,9 @@ function Layout() {
         <div className="ContentWrapper">
           <Header />
           <Outlet />
-          {/* {timesData.articles[0].Name} */}
-
-          {Object.keys(timesData).map((keyName, i) => (
-            <div key={keyName}>
-              <h1>{keyName}</h1>
-              {timesData[keyName].map((piece) => 
-                <div key={piece.Filename}>
-                    <h2>{piece.Name}</h2>
-                    <p>{piece.Desc}</p>
-                </div>
-              )}
-            </div>
-          ))}
-
-          {/* { Object.keys(result).map((item, i) => (
-                <div key={i} className="report">
-                       {result[item].map((media,ind) =>
-                         <div key={ind}>{media.name}</div>
-                      )}
-                </div>
-        ))} */}
-
-          {/* {Object.keys(subjects).map((keyName, i) => (
-              <li className="travelcompany-input" key={i}>
-                  <span className="input-label">key: {i} Name: {subjects[keyName]}</span>
-              </li>
-          ))} */}
-
-         
-          {/* {timesData.map(category =>
-                category
-          )}
-           */}
-          {/* {timesData.articles.map(piece =>
-                <div key={piece.Filename}>
-                    <h2>{piece.Name}</h2>
-                    <p>{piece.Desc}</p>
-                </div>
-            )} */}
+          
           <hr />
+          <Section timesData={timesData} />
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
