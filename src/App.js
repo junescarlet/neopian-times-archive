@@ -9,6 +9,7 @@ import Home from './components/content/home/Home';
 import Editorial from './components/content/editorial/Editorial';
 import Thumbnails from './components/content/thumbnails/Thumbnails';
 import Section from './components/content/section/Section';
+import Comics from 
 
 function App() {
   const [staticTimesData, setStaticTimesData] = useState([]);
@@ -38,8 +39,12 @@ function App() {
         <Route path="editorial" element={<Editorial />} />
         <Route path="section" element={<Section timesData={timesData} />} >
           <Route path=":sectionId" element={<Section />} />
-        </Route>
+          {/* <Route to comic /> */}
 
+        </Route>
+        <Route path="comics" element={<Comics />} >
+
+        </Route>
         
       </Route>
     </Routes>
