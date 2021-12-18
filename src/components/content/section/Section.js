@@ -53,31 +53,29 @@ const Section = props => {
     return (
         <div className="section">
             <h1>{params.sectionId}</h1>
-            {/* {section.map((section, i) => 
-                <div key={section.Filename} >
-                    {section.Name}
+            {section ? section.map((piece, i) => 
+                <div key={[piece].Filename} >
+                    <Thumbnails key={piece.Filename} sectionData={piece} />
                 </div>
-            )} */}
-            {Object.keys(timesData).map((keyName, i) => (
+            ): <p>Loading</p>}
+            {/* {Object.keys(timesData).map((keyName, i) => (
                 <div key={keyName}>
                     <h1>{keyName}</h1>
                     {timesData[keyName].map((piece) => 
                     <>
                     <Thumbnails key={piece.Filename} sectionData={piece} />
-                    {/* {piece.Name} */}
                </>
                     )}
-                    
-{/*               
+                                   
                     {timesData[keyName].map((piece) => 
                     <div key={piece.Filename}>
                         <h2>{piece.Name}</h2>
                         <p>{piece.Desc}</p>
                         <hr />
                     </div>
-                    )} */}
+                    )} 
                 </div>
-            ))}
+            ))} */}
             
             <p>
             </p>

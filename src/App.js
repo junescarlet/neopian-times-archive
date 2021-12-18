@@ -9,7 +9,7 @@ import Home from './components/content/home/Home';
 import Editorial from './components/content/editorial/Editorial';
 import Thumbnails from './components/content/thumbnails/Thumbnails';
 import Section from './components/content/section/Section';
-import Comics from 
+import Comics from './components/content/section/comics/Comics';
 
 function App() {
   const [staticTimesData, setStaticTimesData] = useState([]);
@@ -42,13 +42,13 @@ function App() {
           {/* <Route to comic /> */}
 
         </Route>
-        <Route path="comics" element={<Comics />} >
+        <Route path="comics" element={<Comics timesData={timesData.comics}/>} >
 
         </Route>
         
       </Route>
     </Routes>
-    {Object.keys(timesData).map((keyName, i) => (
+    {/* {Object.keys(timesData).map((keyName, i) => (
       <div key={keyName}>
         <h1>{keyName}</h1>
         {timesData[keyName].map((piece) => 
@@ -58,7 +58,7 @@ function App() {
           </div>
         )}
       </div>
-    ))}
+    ))} */}
     </>
   );
 }
@@ -75,12 +75,7 @@ function Layout(props) {
           <Outlet />
           
           <hr />
-          <Section timesData={timesData} />
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          <Footer />
+        <Footer />
         </div>
       </div>
     </div>
