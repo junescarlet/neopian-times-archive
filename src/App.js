@@ -39,11 +39,10 @@ function App() {
         <Route path="editorial" element={<Editorial />} />
         <Route path="section" element={<Section timesData={timesData} />} >
           <Route path=":sectionId" element={<Section />} />
-          {/* <Route to comic /> */}
 
         </Route>
         <Route path="comics" element={<Comics timesData={timesData.comics}/>} >
-
+          <Route path=":pieceId" element={<comic />} />
         </Route>
         
       </Route>

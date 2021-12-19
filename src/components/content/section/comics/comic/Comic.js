@@ -5,6 +5,12 @@ import Thumbnails from '../../thumbnails/Thumbnails';
 
 const Comics = props => {
     let { timesData } = props;
+    //console.log(props);
+    //console.log(timesData);
+
+    useEffect(() => {     
+          
+    }, []);
     
     return (
         <div className="comics">

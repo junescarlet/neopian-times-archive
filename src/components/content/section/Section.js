@@ -49,9 +49,9 @@ const Section = props => {
     //     );
     // }
     let section = getSection(params.sectionId);
-    console.log(section)
+    //console.log(section)
     return (
-        <div className="section">
+        <div key={section} className="section">
             <h1>{params.sectionId}</h1>
             {section ? section.map((piece, i) => 
                 <div key={[piece].Filename} >

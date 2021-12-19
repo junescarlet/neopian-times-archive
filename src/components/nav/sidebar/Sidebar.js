@@ -13,7 +13,7 @@ const Sidebar = (props) => {
                <li><s>Archives</s></li>
                <li><Link to="editorial">Editorial</Link></li>
                <li><s>Articles</s></li>
-               <li><s>Comics</s></li>
+               <li><Link to="comics">Comics</Link></li>
                <li><s>Short Stories</s></li>
                <li><s>New Series</s></li>
                <li><s>Continued Series</s></li>
