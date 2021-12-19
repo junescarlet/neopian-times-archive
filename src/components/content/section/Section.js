@@ -4,11 +4,6 @@ import { useParams } from "react-router-dom";
 import './Section.scss';
 import Thumbnails from '../thumbnails/Thumbnails';
 
-// export function getInvoice(number) {
-//     return invoices.find(
-//       invoice => invoice.number === number
-//     );
-//   }
   
 
 

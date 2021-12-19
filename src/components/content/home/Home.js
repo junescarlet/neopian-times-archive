@@ -11,7 +11,7 @@ const Home = props => {
             <h1>Home</h1>
              {Object.keys(timesData).map((keyName, i) => (
                  <li key={keyName}>
-                    <Link to={`/section/${keyName}`}>
+                 <Link to={`/section/${keyName}`}>
                        {keyName}
                     </Link>
                 </li>

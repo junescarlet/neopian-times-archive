@@ -1,27 +1,59 @@
-import React, { useState,  useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from "react-router-dom";
 
-import './Comics.scss';
-import Thumbnails from '../../thumbnails/Thumbnails';
+import './Comic.scss';
 
-const Comics = props => {
+
+const Comic = props => {
+    const [piece, setPiece] = useState("");
     let { timesData } = props;
-    //console.log(props);
-    //console.log(timesData);
+    let params = useParams();
 
-    useEffect(() => {     
-          
+    console.log(timesData);
+    console.log(params);
+
+    // export function getInvoice(number) {
+    //     return invoices.find(
+    //       invoice => invoice.number === number
+    //     );
+    //   }
+    // useEffect(() => {
+    //     document.title = `You clicked ${count} times`;
+    //   }, [count]);
+      
+    useEffect(() => {
+        // let getPiece = (id) => {
+        //     return timesData.find(
+        //         comic => comic.Filename === id
+        //     );
+        // }
+        let getPiece = (id) => {
+            setPiece(timesData.find(
+                comic => comic.Filename === id
+            ));
+        }
+        setPiece(timesData.find(
+            comic => comic.Filename === id
+        ));
     }, []);
-    
+   
+    // console.log(piece);
+    //setPiece = getPiece(params.pieceId);
+    //setPiece(getPiece(params.pieceId));
+    //getPiece(params.pieceId);
     return (
-        <div className="comics">
-            <h1>Comics</h1>
-            {}
-            {timesData ? timesData.map(piece =>
-                <Thumbnails key={piece.Filename} sectionData={piece} />
-            ) :
-            <p>Loading</p>}
+        <div className="comic">
+    
+            {timesData ?  
+                <>
+                    <h1> My Comic: {piece.Name}</h1>
+                    <p>{params.pieceId}</p>
+                </>
+                :
+                <p>Loading</p>
+            }
         </div>
     );
 };
 
-export default Comics;
+export default Comic;

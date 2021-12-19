@@ -7,9 +7,9 @@ import Header from './components/content/every/Header';
 import Footer from './components/content/every/Footer';
 import Home from './components/content/home/Home';
 import Editorial from './components/content/editorial/Editorial';
-import Thumbnails from './components/content/thumbnails/Thumbnails';
 import Section from './components/content/section/Section';
 import Comics from './components/content/section/comics/Comics';
+import Comic from './components/content/section/comics/comic/Comic';
 
 function App() {
   const [staticTimesData, setStaticTimesData] = useState([]);
@@ -22,13 +22,8 @@ function App() {
       })
       .catch(err =>{ console.error(err => console.error(err))}); 
     }, []);
-    // console.log(staticTimesData);
 
     const timesData = staticTimesData;
-
-    // for (const item in timesData) {
-    //   console.log(item);
-    // }
 
 
   return (
@@ -42,7 +37,7 @@ function App() {
 
         </Route>
         <Route path="comics" element={<Comics timesData={timesData.comics}/>} >
-          <Route path=":pieceId" element={<comic />} />
+          <Route path=":pieceId" element={<Comic timesData={timesData.comics} />} />
         </Route>
         
       </Route>
