@@ -5,12 +5,12 @@ import './Comic.scss';
 
 
 const Comic = props => {
-    const [piece, setPiece] = useState("");
+    //const [piece, setPiece] = useState("");
     let { timesData } = props;
     let params = useParams();
 
-    console.log(timesData);
-    console.log(params);
+    //console.log(timesData);
+    //console.log(params);
 
     // export function getInvoice(number) {
     //     return invoices.find(
@@ -21,26 +21,33 @@ const Comic = props => {
     //     document.title = `You clicked ${count} times`;
     //   }, [count]);
       
-    useEffect(() => {
+   // useEffect(() => {
         // let getPiece = (id) => {
         //     return timesData.find(
         //         comic => comic.Filename === id
         //     );
         // }
-        let getPiece = (id) => {
-            setPiece(timesData.find(
-                comic => comic.Filename === id
-            ));
-        }
-        setPiece(timesData.find(
-            comic => comic.Filename === id
-        ));
-    }, []);
+        // let getPiece = (id) => {
+        //     setPiece(timesData.find(
+        //         comic => comic.Filename === id
+        //     ));
+        // }
+        // setPiece(timesData.find(
+        //     comic => comic.Filename === id
+        // ));
+    //}, []);
+
+    let getPiece = (id, array) => {
+        return array.find(
+            piece => piece.Filename === id
+        );
+    }
    
-    // console.log(piece);
-    //setPiece = getPiece(params.pieceId);
+    
+    let piece = getPiece(params.pieceId, timesData);
     //setPiece(getPiece(params.pieceId));
     //getPiece(params.pieceId);
+    //console.log(piece);
     return (
         <div className="comic">
     

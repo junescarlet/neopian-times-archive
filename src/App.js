@@ -37,8 +37,8 @@ function App() {
 
         </Route>
         <Route path="comics" element={<Comics timesData={timesData.comics}/>} >
-          <Route path=":pieceId" element={<Comic timesData={timesData.comics} />} />
         </Route>
+        <Route path="comics/:pieceId" element={<Comic timesData={timesData.comics} />} />
         
       </Route>
     </Routes>
