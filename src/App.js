@@ -58,7 +58,6 @@ function App() {
 }
 
 function Layout(props) {
-  const {timesData} = props;
   
   return (
     <div className="App">

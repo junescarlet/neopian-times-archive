@@ -2,20 +2,20 @@
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
 .App {
-    background-color: black;
-    text-align: center;
+  background-color: #79beda;
+  text-align: center;
 }
 
 .ContentWrapper {
-    background-color: #20b181;
-    max-width: 500px;
-    width: 100%;
-    margin: auto;
-    padding: 70px 0 70px 0;
+  background-color: #ffffff;
+  max-width: 500px;
+  width: 100%;
+  margin: auto;
+  padding: 70px 0 70px 0;
 }
 
 @media only screen and (min-width: 801px) {
-	.desktopSidebarWrapper {
-		margin: 0 0 0 200px;
-	}
+  .desktopSidebarWrapper {
+    margin: 0 0 0 200px;
+  }
 }
