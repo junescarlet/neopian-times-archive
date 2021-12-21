@@ -12,7 +12,7 @@ const Sidebar = (props) => {
                <li><Link to="/">Home</Link></li>
                <li><s>Archives</s></li>
                <li><Link to="editorial">Editorial</Link></li>
-               <li><s>Articles</s></li>
+               <li><Link to="articles">Articles</Link></li>
                <li><Link to="comics">Comics</Link></li>
                <li><s>Short Stories</s></li>
                <li><s>New Series</s></li>

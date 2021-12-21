@@ -7,9 +7,11 @@ import Header from './components/content/every/Header';
 import Footer from './components/content/every/Footer';
 import Home from './components/content/home/Home';
 import Editorial from './components/content/editorial/Editorial';
-import Section from './components/content/section/Section';
+//import Section from './components/content/section/Section';
 import Comics from './components/content/section/comics/Comics';
 import Comic from './components/content/section/comics/comic/Comic';
+import Articles from './components/content/section/articles/Articles';
+import Text from './components/content/section/Text/Text'
 
 function App() {
   const [staticTimesData, setStaticTimesData] = useState([]);
@@ -32,13 +34,13 @@ function App() {
       <Route path="/" element={<Layout timesData={staticTimesData} />}>
         <Route index element={<Home timesData={timesData} />} />
         <Route path="editorial" element={<Editorial />} />
-        <Route path="section" element={<Section timesData={timesData} />} >
+        {/* <Route path="section" element={<Section timesData={timesData} />} >
           <Route path=":sectionId" element={<Section />} />
-
-        </Route>
-        <Route path="comics" element={<Comics timesData={timesData.comics}/>} >
-        </Route>
+        </Route> */}
+        <Route path="comics" element={<Comics timesData={timesData.comics}/>} />
         <Route path="comics/:pieceId" element={<Comic timesData={timesData.comics} />} />
+        <Route path="articles" element={<Articles timesData={timesData.articles}/>} />
+        <Route path="articles/:pieceId" element={<Text timesData={timesData.articles} />} />
         
       </Route>
     </Routes>

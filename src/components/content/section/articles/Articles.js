@@ -1,15 +1,15 @@
 import React from 'react';
 
-import './Comics.scss';
+//import './Articles.scss';
 import Thumbnails from '../../thumbnails/Thumbnails';
 import Section from '../Section';
 
 
-const Comics = props => {
+const Articles = props => {
     let { timesData } = props;
     return (
         <Section>
-            <div className="comics">
+            <div className="articles">
                 <h1>Comics</h1>
                 {timesData ? timesData.map(piece =>
                     <Thumbnails key={piece.Filename} sectionData={piece} />
@@ -20,4 +20,4 @@ const Comics = props => {
     );
 };
 
-export default Comics;
+export default Articles;
