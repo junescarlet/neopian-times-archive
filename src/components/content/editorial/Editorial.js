@@ -1,4 +1,5 @@
 import React from 'react';
+import Loading from '../../UI/Loading';
 
 const Editorial = props => {
     let { timesData } = props;
@@ -11,7 +12,7 @@ const Editorial = props => {
             <div dangerouslySetInnerHTML={{__html: timesData.Editorial}} />
             </p>
             :
-                <p>Loading</p>
+                <Loading />
             }
         </>
     );

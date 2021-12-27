@@ -3,6 +3,7 @@ import React from 'react';
 import './Comics.scss';
 import Thumbnails from '../../thumbnails/Thumbnails';
 import Section from '../Section';
+import Loading from '../../../UI/Loading';
 
 
 const Comics = props => {
@@ -14,7 +15,7 @@ const Comics = props => {
                 {timesData ? timesData.map(piece =>
                     <Thumbnails key={piece.Filename} sectionData={piece} />
                 ) :
-                <p>Loading</p>}
+                <Loading />}
             </div>
         </Section>
     );

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams } from "react-router-dom";
+import Loading from '../../../UI/Loading';
 
 const Comic = props => {
     let { timesData } = props;
@@ -28,7 +29,7 @@ const Comic = props => {
                     {}
                 </>
                 :
-                <p>Loading</p>
+                <Loading />
             }
         </div>
     );

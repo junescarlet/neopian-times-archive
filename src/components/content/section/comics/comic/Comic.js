@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams } from "react-router-dom";
+import Loading from '../../../../UI/Loading';
 //import { existsSync } from 'fs';
 
 import './Comic.scss';
@@ -47,7 +48,7 @@ const Comic = props => {
                     {/* Uses gif if there's no jpg. Temporary solution */}
                 </>
                 :
-                <p>Loading</p>
+                <Loading />
             }
         </div>
     );

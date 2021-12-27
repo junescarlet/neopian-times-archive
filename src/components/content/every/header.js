@@ -11,7 +11,7 @@ const Header = props => {
                 {timesData.Neopiandate}
             </p>
             :
-                <p>Loading</p>
+                <p>Neopian Date</p>
             }
             <hr />
         </>

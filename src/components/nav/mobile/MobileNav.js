@@ -33,11 +33,6 @@ const MobileNav = props => {
                     </Nav.Item>
                     <Nav.Item>
                         <Nav.Link href="#">
-                            <s>Back</s>
-                        </Nav.Link>  
-                    </Nav.Item>
-                    <Nav.Item>
-                        <Nav.Link href="#">
                             <s>Next</s>
                         </Nav.Link>
                     </Nav.Item>
