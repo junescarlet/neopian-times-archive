@@ -1,4 +1,10 @@
 {
+  "Issue": {
+    "Link": "https://www.neopets.com/ntimes/index.phtml?week=946",
+    "Edition": "946",
+    "Date": "15 October 2021",
+    "Neopiandate": "15th day of Collecting, Y23",   
+  },
   "articles": [
     {
       "Link": "http://www.neopets.com/ntimes/index.phtml?section=585474&issue=946",
@@ -116,10 +122,7 @@
       "Link": "http://www.neopets.com/ntimes/index.phtml?section=585476&issue=946",
       "Image": "https://images.neopets.com/nt/ntimages/96_pantdevil_gocart.gif",
       "Name": "Avatar [MIS]Adventures!",
-      "UN": [
-        "4mandy4",
-        "rodel_27phoenix"
-      ],
+      "UN": ["4mandy4", "rodel_27phoenix"],
       "Desc": "Collab with rodel_27phoenix to tell a story about the fortunes and 'MIS'fortunes of avatar collecting!",
       "Filename": "585476",
       "Piece": "archive/NT_archive_946/946/comics/585476.jpg"
