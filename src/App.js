@@ -35,7 +35,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout timesData={staticTimesData} />}>
         <Route index element={<Home timesData={timesData} />} />
-        <Route path="editorial" element={<Editorial />} />
+        <Route path="editorial" element={<Editorial timesData={timesData.Issue} />} />
         {/* <Route path="section" element={<Section timesData={timesData} />} >
           <Route path=":sectionId" element={<Section />} />
         </Route> */}
@@ -67,13 +67,14 @@ function App() {
 }
 
 function Layout(props) {
-  
+  let {timesData} = props;
+
   return (
     <div className="App">
-      <Nav />
+      <Nav timesData={timesData.Issue} />
       <div className="desktopSidebarWrapper">
         <div className="ContentWrapper">
-          <Header />
+          <Header timesData={timesData.Issue} />
           <Outlet />
           
           <hr />

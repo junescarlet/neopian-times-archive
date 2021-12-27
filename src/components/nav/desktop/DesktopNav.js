@@ -8,6 +8,7 @@ import Sidebar from '../sidebar/Sidebar';
 // import { SidebarContext } from '../../context/Sidebar-context';
 
 const DesktopNav = props => {
+    let {timesData} = props;
     
 
     return (
@@ -15,7 +16,12 @@ const DesktopNav = props => {
            <Sidebar />
             <Navbar className="justify-content-center" bg="light" fixed="top">
                 <Nav className="justify-content-center">
-                    <Navbar.Brand><Link to="/">The Neopian Times</Link></Navbar.Brand>
+                    <Navbar.Brand><Link to="/"><img width="40px" alt="Neopian Times Quill" src="images/nt_quill.svg" /> The Neopian Times Archive</Link></Navbar.Brand>
+                    <Nav.Item>
+                        <Nav.Link href="#">
+                            <s>Issue #{timesData && timesData.Edition}</s>
+                        </Nav.Link>
+                    </Nav.Item>
                     <Nav.Item>
                         <Nav.Link href="#">
                             <s>Search</s>

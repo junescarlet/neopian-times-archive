@@ -3,11 +3,16 @@ import React from 'react';
 import './Header.scss';
 
 const Header = props => {
+    let {timesData} = props;
     return (
         <>
+            {timesData ? 
             <p>
-                15th day of Collecting, Y23
+                {timesData.Neopiandate}
             </p>
+            :
+                <p>Loading</p>
+            }
             <hr />
         </>
     );
