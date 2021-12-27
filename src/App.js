@@ -7,11 +7,13 @@ import Header from './components/content/every/Header';
 import Footer from './components/content/every/Footer';
 import Home from './components/content/home/Home';
 import Editorial from './components/content/editorial/Editorial';
-//import Section from './components/content/section/Section';
 import Comics from './components/content/section/comics/Comics';
 import Comic from './components/content/section/comics/comic/Comic';
 import Articles from './components/content/section/articles/Articles';
 import Text from './components/content/section/Text/Text'
+import Shorts from './components/content/section/shorts/Shorts';
+import Series from './components/content/section/series/Series';
+import Cont from './components/content/section/cont/Cont';
 
 function App() {
   const [staticTimesData, setStaticTimesData] = useState([]);
@@ -41,8 +43,12 @@ function App() {
         <Route path="comics/:pieceId" element={<Comic timesData={timesData.comics} />} />
         <Route path="articles" element={<Articles timesData={timesData.articles}/>} />
         <Route path="articles/:pieceId" element={<Text timesData={timesData.articles} />} />
-        <Route path="shorts" element={<Articles timesData={timesData.shorts}/>} />
+        <Route path="shorts" element={<Shorts timesData={timesData.shorts}/>} />
         <Route path="shorts/:pieceId" element={<Text timesData={timesData.shorts} />} />
+        <Route path="series" element={<Series timesData={timesData.series}/>} />
+        <Route path="series/:pieceId" element={<Text timesData={timesData.series} />} />
+        <Route path="cont" element={<Cont timesData={timesData.cont}/>} />
+        <Route path="cont/:pieceId" element={<Text timesData={timesData.cont} />} />
       </Route>
     </Routes>
     {/* {Object.keys(timesData).map((keyName, i) => (
