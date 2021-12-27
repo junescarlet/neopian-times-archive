@@ -37,11 +37,11 @@ const Comic = props => {
     
             {timesData ?  
                 <>
-                    <h1> My Comic: {piece.Name}</h1>
+                    <h1>{piece.Name}</h1>
                     <p>by {piece.UN[0]} {piece.UN[1]} {piece.UN[2]}</p>
                     <p>{params.pieceId}</p>
                     {/* <img alt="{piece.Name}" src={`archive/NT_archive_946/946/comics/${piece.Filename}.jpg`} /> */}
-                    <img alt="{piece.Name}" src={`archive/NT_archive_946/946/comics/${piece.Filename}.jpg`} 
+                    <img alt="{piece.Name}" src={piece.Piece} 
                     onError={(e)=>{e.target.onerror = null; 
                     e.target.src=`archive/NT_archive_946/946/comics/${piece.Filename}.gif`}} /> 
                     {/* Uses gif if there's no jpg. Temporary solution */}

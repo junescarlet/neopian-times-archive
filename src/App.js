@@ -41,7 +41,8 @@ function App() {
         <Route path="comics/:pieceId" element={<Comic timesData={timesData.comics} />} />
         <Route path="articles" element={<Articles timesData={timesData.articles}/>} />
         <Route path="articles/:pieceId" element={<Text timesData={timesData.articles} />} />
-        
+        <Route path="shorts" element={<Articles timesData={timesData.shorts}/>} />
+        <Route path="shorts/:pieceId" element={<Text timesData={timesData.shorts} />} />
       </Route>
     </Routes>
     {/* {Object.keys(timesData).map((keyName, i) => (
