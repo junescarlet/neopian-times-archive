@@ -19,7 +19,7 @@ function App() {
   const [staticTimesData, setStaticTimesData] = useState([]);
 
   useEffect(() => {
-    fetch("archive/NT_archive_946/946/946.json")
+    fetch("archive/946/946.json")
       .then(response => response.json())
       .then(data => { 
         setStaticTimesData(data);
