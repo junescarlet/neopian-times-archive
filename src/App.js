@@ -42,7 +42,7 @@ function App() {
         <Route path="comics" element={<Comics timesData={timesData.comics}/>} />
         <Route path="comics/:pieceId" element={<Comic timesData={timesData.comics} />} />
         <Route path="articles" element={<Articles timesData={timesData.articles}/>} />
-        <Route path="articles/:pieceId" element={<Text timesData={timesData.articles} />} />
+        <Route path="/articles/:pieceId" element={<Text timesData={timesData.articles} />} />
         <Route path="shorts" element={<Shorts timesData={timesData.shorts}/>} />
         <Route path="shorts/:pieceId" element={<Text timesData={timesData.shorts} />} />
         <Route path="series" element={<Series timesData={timesData.series}/>} />

@@ -10,7 +10,7 @@ const Articles = props => {
 
     let { timesData } = props;
     return (
-        <Section>
+        <Section timesData={timesData} >
             <div className="articles">
                 <h1>Articles</h1>
                 {timesData ? timesData.map(piece =>

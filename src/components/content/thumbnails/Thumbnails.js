@@ -5,8 +5,6 @@ import './Thumbnails.scss';
 
 const Thumbnails = props => {
     let { sectionData } = props;
-    //console.log(props);
-    //console.log(sectionData);
 
     
     return (
