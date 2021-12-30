@@ -14,9 +14,12 @@ import Text from './components/content/section/Text/Text'
 import Shorts from './components/content/section/shorts/Shorts';
 import Series from './components/content/section/series/Series';
 import Cont from './components/content/section/cont/Cont';
+import Archives from './components/content/archives/Archives';
 
 function App() {
   const [staticTimesData, setStaticTimesData] = useState([]);
+  let IssueArray = ["946", "888"];
+  
 
   useEffect(() => {
     fetch("archive/946/946.json")
@@ -49,6 +52,7 @@ function App() {
         <Route path="series/:pieceId" element={<Text timesData={timesData.series} />} />
         <Route path="cont" element={<Cont timesData={timesData.cont}/>} />
         <Route path="cont/:pieceId" element={<Text timesData={timesData.cont} />} />
+        <Route path="archives" element={<Archives />} />
       </Route>
     </Routes>
     {/* {Object.keys(timesData).map((keyName, i) => (

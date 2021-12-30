@@ -10,7 +10,7 @@ const Sidebar = (props) => {
         <nav className="sidebar">
             <ul>
                <li><Link to="/">Home</Link></li>
-               <li><s>Archives</s></li>
+               <li><Link to="archives">Archives</Link></li>
                <li><Link to="editorial">Editorial</Link></li>
                <li><Link to="articles">Articles</Link></li>
                <li><Link to="comics">Comics</Link></li>
