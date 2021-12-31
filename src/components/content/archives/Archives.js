@@ -1,21 +1,35 @@
 import React from 'react';
 import Loading from '../../UI/Loading';
 
+import { NavLink } from "react-router-dom";
+
 //import './Archives.scss';
 
 
 
-const Archives = props => {
+const Archives = props => {  
 
-    let { timesData } = props;
+    let { issueArray } = props;
+
+    let activeStyle = {
+        color: "green"
+      };
+    
+      let activeClassName = "underline"
+
+    console.log(issueArray)
     return (
             <div className="archives">
                 <h1>Archives</h1>
-                {timesData ? 
-                    <>
-                        
-                    </> 
-                    :
+                {issueArray ? issueArray.map(piece =>
+                    <div key={piece.Edition}>
+                        <li><NavLink to={`/${piece.Edition}`} style={({ isActive }) =>
+                        isActive ? activeStyle : undefined
+                        } >
+                            Issue {piece.Edition}
+                        </NavLink></li>
+                    </div>
+                ) :
                 <Loading />}
             </div>
     );

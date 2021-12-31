@@ -18,17 +18,25 @@ import Archives from './components/content/archives/Archives';
 
 function App() {
   const [staticTimesData, setStaticTimesData] = useState([]);
-  let IssueArray = ["946", "888"];
-  
+  let issueArray = [{
+    Edition: "946",
+    Date: "15 October 2021",
+    Neopiandate: "15th day of Collecting, Y23"}, 
+    {Edition: "888",
+    Date: "17 January 2020",
+    Neopiandate: "17th day of Sleeping, Y22"}
+  ];
+  const [currentIssue, setCurrentIssue] = useState(issueArray[1]);
+  //console.log(issueArray);
 
   useEffect(() => {
-    fetch("archive/946/946.json")
+    fetch(`archive/${currentIssue.Edition}/${currentIssue.Edition}.json`)
       .then(response => response.json())
       .then(data => { 
         setStaticTimesData(data);
       })
       .catch(err =>{ console.error(err => console.error(err))}); 
-    }, []);
+    }, [currentIssue]);
 
     const timesData = staticTimesData;
 
@@ -36,8 +44,9 @@ function App() {
   return (
     <>
     <Routes>
-      <Route path="/" element={<Layout timesData={staticTimesData} />}>
+      <Route path="/" element={<Layout timesData={staticTimesData} />}>   
         <Route index element={<Home timesData={timesData} />} />
+        <Route path=":issueId" element={<Home timesData={timesData} />} />
         <Route path="editorial" element={<Editorial timesData={timesData.Issue} />} />
         {/* <Route path="section" element={<Section timesData={timesData} />} >
           <Route path=":sectionId" element={<Section />} />
@@ -52,7 +61,8 @@ function App() {
         <Route path="series/:pieceId" element={<Text timesData={timesData.series} />} />
         <Route path="cont" element={<Cont timesData={timesData.cont}/>} />
         <Route path="cont/:pieceId" element={<Text timesData={timesData.cont} />} />
-        <Route path="archives" element={<Archives />} />
+        <Route path="/archives" element={<Archives issueArray={issueArray} />} />
+        
       </Route>
     </Routes>
     {/* {Object.keys(timesData).map((keyName, i) => (
