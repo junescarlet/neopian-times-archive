@@ -49,18 +49,19 @@ const Comic = props => {
 
     const location = useLocation();
     let locationArray = location.pathname.split("/");
-    let section = locationArray[1];
+    let issue = locationArray[1]
+    let section = locationArray[2];
 
     return (
         <div className="comic">
     
             {timesData ?  
                 <>
-                <Link to={`/${section}/${prevPiece.Filename}`}>
+                <Link to={`/${issue}/${section}/${prevPiece.Filename}`}>
                        Prev: {prevPiece.Filename}
                 </Link>
                  | 
-                <Link to={`/${section}/${nextPiece.Filename}`}>
+                <Link to={`/${issue}/${section}/${nextPiece.Filename}`}>
                        Next: {nextPiece.Filename}
                 </Link>
                     <h1>{piece.Name}</h1>

@@ -1,6 +1,6 @@
 import React, { useState,  useEffect } from 'react';
 import './App.scss';
-import { Route, Routes, Outlet } from "react-router-dom";
+import { Route, Routes, Outlet, useLocation } from "react-router-dom";
 
 import Nav from './components/nav/Nav';
 import Header from './components/content/every/Header';
@@ -18,16 +18,31 @@ import Archives from './components/content/archives/Archives';
 
 function App() {
   const [staticTimesData, setStaticTimesData] = useState([]);
-  let issueArray = [{
-    Edition: "946",
-    Date: "15 October 2021",
-    Neopiandate: "15th day of Collecting, Y23"}, 
-    {Edition: "888",
-    Date: "17 January 2020",
-    Neopiandate: "17th day of Sleeping, Y22"}
-  ];
-  const [currentIssue, setCurrentIssue] = useState(issueArray[1]);
+  const [staticIssueData, setStaticIssueData] = useState([]);
+
+  
+  const [currentIssue, setCurrentIssue] = useState([0]);
   //console.log(issueArray);
+  const location = useLocation();
+  let locationArray = location.pathname.split("/");
+  let issue = locationArray[1]
+  let getCurrentIssue = (id, array) => {
+    if (array) {
+      return array.find(
+        piece => piece.Edition === id
+      );
+    }
+  }
+ //setCurrentIssue(getCurrentIssue(issue, staticIssueData));
+
+  useEffect(() => {
+    fetch("archive/list_of_issues.json")
+    .then(response => response.json())
+      .then(data => { 
+        setStaticIssueData(data);
+      })
+      .catch(err =>{ console.error(err => console.error(err))}); 
+  }, [issue]);
 
   useEffect(() => {
     fetch(`archive/${currentIssue.Edition}/${currentIssue.Edition}.json`)
@@ -44,9 +59,9 @@ function App() {
   return (
     <>
     <Routes>
-      <Route path="/" element={<Layout timesData={staticTimesData} />}>   
+      <Route path="/:issueId" element={<Layout timesData={staticTimesData} />}>   
         <Route index element={<Home timesData={timesData} />} />
-        <Route path=":issueId" element={<Home timesData={timesData} />} />
+        {/* <Route path=":issueId" element={<Home timesData={timesData} />} /> */}
         <Route path="editorial" element={<Editorial timesData={timesData.Issue} />} />
         {/* <Route path="section" element={<Section timesData={timesData} />} >
           <Route path=":sectionId" element={<Section />} />
@@ -54,14 +69,14 @@ function App() {
         <Route path="comics" element={<Comics timesData={timesData.comics}/>} />
         <Route path="comics/:pieceId" element={<Comic timesData={timesData.comics} />} />
         <Route path="articles" element={<Articles timesData={timesData.articles}/>} />
-        <Route path="/articles/:pieceId" element={<Text timesData={timesData.articles} />} />
+        <Route path="articles/:pieceId" element={<Text timesData={timesData.articles} />} />
         <Route path="shorts" element={<Shorts timesData={timesData.shorts}/>} />
         <Route path="shorts/:pieceId" element={<Text timesData={timesData.shorts} />} />
         <Route path="series" element={<Series timesData={timesData.series}/>} />
         <Route path="series/:pieceId" element={<Text timesData={timesData.series} />} />
         <Route path="cont" element={<Cont timesData={timesData.cont}/>} />
         <Route path="cont/:pieceId" element={<Text timesData={timesData.cont} />} />
-        <Route path="/archives" element={<Archives issueArray={issueArray} />} />
+        <Route path="archives" element={<Archives issueArray={staticIssueData} />} />
         
       </Route>
     </Routes>

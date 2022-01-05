@@ -17,7 +17,7 @@ const Archives = props => {
     
       let activeClassName = "underline"
 
-    console.log(issueArray)
+    //console.log(issueArray)
     return (
             <div className="archives">
                 <h1>Archives</h1>
