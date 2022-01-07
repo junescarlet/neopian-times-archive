@@ -69,25 +69,36 @@ function App() {
     <>
     <Routes>
       <Route path="/" element={<Layout timesData={staticTimesData} />}>
-      <Route path="/:issueId" element={<Layout timesData={staticTimesData} />}>   
-        <Route index element={<Home timesData={timesData} />} />
-        {/* <Route path=":issueId" element={<Home timesData={timesData} />} /> */}
-        <Route path="editorial" element={<Editorial timesData={timesData.Issue} />} />
-        {/* <Route path="section" element={<Section timesData={timesData} />} >
-          <Route path=":sectionId" element={<Section />} />
-        </Route> */}
-        <Route path="comics" element={<Comics timesData={timesData.comics}/>} />
-        <Route path="comics/:pieceId" element={<Comic timesData={timesData.comics} />} />
-        <Route path="articles" element={<Articles timesData={timesData.articles}/>} />
-        <Route path="articles/:pieceId" element={<Text timesData={timesData.articles} />} />
-        <Route path="shorts" element={<Shorts timesData={timesData.shorts}/>} />
-        <Route path="shorts/:pieceId" element={<Text timesData={timesData.shorts} />} />
-        <Route path="series" element={<Series timesData={timesData.series}/>} />
-        <Route path="series/:pieceId" element={<Text timesData={timesData.series} />} />
-        <Route path="cont" element={<Cont timesData={timesData.cont}/>} />
-        <Route path="cont/:pieceId" element={<Text timesData={timesData.cont} />} />
+      <Route index element={<Archives issueArray={staticIssueData.Issues} />} />
+        <Route path="/:issueId" element={<IssueLayout timesData={staticTimesData} />}>   
+          <Route index element={<Home timesData={timesData} />} />
+          {/* <Route path=":issueId" element={<Home timesData={timesData} />} /> */}
+          <Route path="editorial" element={<Editorial timesData={timesData.Issue} />} />
+          {/* <Route path="section" element={<Section timesData={timesData} />} >
+            <Route path=":sectionId" element={<Section />} />
+          </Route> */}
+          <Route path="comics" element={<Comics timesData={timesData.comics}/>} />
+          <Route path="comics/:pieceId" element={<Comic timesData={timesData.comics} />} />
+          {/* <Route path="comics/*" element={<main><p>This piece doesn't exist.</p></main>} /> */}
+          <Route path="articles" element={<Articles timesData={timesData.articles}/>} />
+          <Route path="articles/:pieceId" element={<Text timesData={timesData.articles} />} />
+          <Route path="shorts" element={<Shorts timesData={timesData.shorts}/>} />
+          <Route path="shorts/:pieceId" element={<Text timesData={timesData.shorts} />} />
+          <Route path="series" element={<Series timesData={timesData.series}/>} />
+          <Route path="series/:pieceId" element={<Text timesData={timesData.series} />} />
+          <Route path="cont" element={<Cont timesData={timesData.cont}/>} />
+          <Route path="cont/:pieceId" element={<Text timesData={timesData.cont} />} />
+          <Route path="archives" element={<Archives issueArray={staticIssueData.Issues} />} />
+        </Route>
         <Route path="archives" element={<Archives issueArray={staticIssueData.Issues} />} />
-      </Route>
+        {/* <Route
+          path="*"
+          element={
+            <main style={{ padding: "1rem" }}>
+              <p>There's nothing here!</p>
+            </main>
+          }
+        /> */}
       </Route>
     </Routes>
     {/* {Object.keys(timesData).map((keyName, i) => (
@@ -120,6 +131,20 @@ function Layout(props) {
         <Footer />
         </div>
       </div>
+    </div>
+  );
+
+}
+
+function IssueLayout(props) {
+  let {timesData} = props;
+
+  return (
+    <div className="App">
+      <Nav timesData={timesData.Issue} />
+        <div className="IssueWrapper">
+          <Outlet />
+       </div>
     </div>
   );
 
