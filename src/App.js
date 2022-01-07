@@ -1,6 +1,6 @@
 import React, { useState,  useEffect } from 'react';
 import './App.scss';
-import { Route, Routes, Outlet, useLocation, useParams } from "react-router-dom";
+import { Route, Routes, Outlet, useLocation } from "react-router-dom";
 
 import Nav from './components/nav/Nav';
 import Header from './components/content/every/Header';
@@ -17,8 +17,6 @@ import Cont from './components/content/section/cont/Cont';
 import Archives from './components/content/archives/Archives';
 
 function App() {
-  //let params = useParams();
-  //console.log(params);
   const [staticTimesData, setStaticTimesData] = useState([]);
   const [staticIssueData, setStaticIssueData] = useState(false);
 
@@ -26,9 +24,7 @@ function App() {
   const [currentIssue, setCurrentIssue] = useState([0]);
   const location = useLocation();
   let locationArray = location.pathname.split("/");
-  //console.log(locationArray);
   let issue = locationArray[1];
-  console.log(issue);
   useEffect(() => {
     setCurrentIssue(issue)
   }, [issue]);
@@ -50,7 +46,7 @@ function App() {
         setStaticIssueData(data);
       })
       .catch(err =>{ console.error(err => console.error(err))}); 
-  }, [issue]);
+  }, []);
 
 // if (staticIssueData) {
 //   //console.log(staticIssueData);
@@ -72,6 +68,7 @@ function App() {
   return (
     <>
     <Routes>
+      <Route path="/" element={<Layout timesData={staticTimesData} />}>
       <Route path="/:issueId" element={<Layout timesData={staticTimesData} />}>   
         <Route index element={<Home timesData={timesData} />} />
         {/* <Route path=":issueId" element={<Home timesData={timesData} />} /> */}
@@ -89,8 +86,8 @@ function App() {
         <Route path="series/:pieceId" element={<Text timesData={timesData.series} />} />
         <Route path="cont" element={<Cont timesData={timesData.cont}/>} />
         <Route path="cont/:pieceId" element={<Text timesData={timesData.cont} />} />
-        <Route path="archives" element={<Archives issueArray={staticIssueData} />} />
-        
+        <Route path="archives" element={<Archives issueArray={staticIssueData.Issues} />} />
+      </Route>
       </Route>
     </Routes>
     {/* {Object.keys(timesData).map((keyName, i) => (

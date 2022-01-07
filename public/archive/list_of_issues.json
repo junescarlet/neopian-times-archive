@@ -1,12 +1,14 @@
 {
-  "946": {
-    "Edition": "946",
-    "Date": "15 October 2021",
-    "Neopiandate": "15th day of Collecting, Y23"
-  },
-  "888": {
-    "Edition": "888",
-    "Date": "17 January 2020",
-    "Neopiandate": "17th day of Sleeping, Y22"
-  }
+  "Issues": [
+    {
+      "Edition": "946",
+      "Date": "15 October 2021",
+      "Neopiandate": "15th day of Collecting, Y23"
+    },
+    {
+      "Edition": "888",
+      "Date": "17 January 2020",
+      "Neopiandate": "17th day of Sleeping, Y22"
+    }
+  ]
 }

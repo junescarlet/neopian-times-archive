@@ -9,6 +9,7 @@ import Section from '../Section';
 const Articles = props => {
 
     let { timesData } = props;
+    //console.log(timesData);
     return (
         <Section timesData={timesData} >
             <div className="articles">
