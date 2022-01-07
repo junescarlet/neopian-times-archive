@@ -1,6 +1,6 @@
 import React, { useState,  useEffect } from 'react';
 import './App.scss';
-import { Route, Routes, Outlet, useLocation } from "react-router-dom";
+import { Route, Routes, Outlet, useLocation, useParams } from "react-router-dom";
 
 import Nav from './components/nav/Nav';
 import Header from './components/content/every/Header';
@@ -17,24 +17,32 @@ import Cont from './components/content/section/cont/Cont';
 import Archives from './components/content/archives/Archives';
 
 function App() {
+  //let params = useParams();
+  //console.log(params);
   const [staticTimesData, setStaticTimesData] = useState([]);
-  const [staticIssueData, setStaticIssueData] = useState([]);
+  const [staticIssueData, setStaticIssueData] = useState(false);
 
   
   const [currentIssue, setCurrentIssue] = useState([0]);
-  //console.log(issueArray);
   const location = useLocation();
   let locationArray = location.pathname.split("/");
-  let issue = locationArray[1]
-  let getCurrentIssue = (id, array) => {
-    if (array) {
-      return array.find(
-        piece => piece.Edition === id
-      );
-    }
-  }
- //setCurrentIssue(getCurrentIssue(issue, staticIssueData));
-
+  //console.log(locationArray);
+  let issue = locationArray[1];
+  console.log(issue);
+  useEffect(() => {
+    setCurrentIssue(issue)
+  }, [issue]);
+;
+  // let getCurrentIssue = (id, array) => {
+  //   if (array) {
+  //     //console.log(array.Edition, id);
+  //     return array.find(
+  //       piece => piece.Edition === id
+  //     );
+  //   }
+  // }
+ 
+  //needed for archive list only?
   useEffect(() => {
     fetch("archive/list_of_issues.json")
     .then(response => response.json())
@@ -44,8 +52,13 @@ function App() {
       .catch(err =>{ console.error(err => console.error(err))}); 
   }, [issue]);
 
+// if (staticIssueData) {
+//   //console.log(staticIssueData);
+//   setCurrentIssue(getCurrentIssue(issue, staticIssueData));
+// }
+ 
   useEffect(() => {
-    fetch(`archive/${currentIssue.Edition}/${currentIssue.Edition}.json`)
+    fetch(`archive/${currentIssue}/${currentIssue}.json`)
       .then(response => response.json())
       .then(data => { 
         setStaticTimesData(data);
