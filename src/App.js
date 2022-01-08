@@ -79,7 +79,7 @@ function App() {
           </Route> */}
           <Route path="comics" element={<Comics timesData={timesData.comics}/>} />
           <Route path="comics/:pieceId" element={<Comic timesData={timesData.comics} />} />
-          {/* <Route path="comics/*" element={<main><p>This piece doesn't exist.</p></main>} /> */}
+          
           <Route path="articles" element={<Articles timesData={timesData.articles}/>} />
           <Route path="articles/:pieceId" element={<Text timesData={timesData.articles} />} />
           <Route path="shorts" element={<Shorts timesData={timesData.shorts}/>} />
@@ -89,16 +89,10 @@ function App() {
           <Route path="cont" element={<Cont timesData={timesData.cont}/>} />
           <Route path="cont/:pieceId" element={<Text timesData={timesData.cont} />} />
           <Route path="archives" element={<Archives issueArray={staticIssueData.Issues} />} />
+          <Route path="*" element={<Archives issueArray={staticIssueData.Issues} />} />
         </Route>
         <Route path="archives" element={<Archives issueArray={staticIssueData.Issues} />} />
-        {/* <Route
-          path="*"
-          element={
-            <main style={{ padding: "1rem" }}>
-              <p>There's nothing here!</p>
-            </main>
-          }
-        /> */}
+        <Route path="*" element={<Archives issueArray={staticIssueData.Issues} />} />
       </Route>
     </Routes>
     {/* {Object.keys(timesData).map((keyName, i) => (

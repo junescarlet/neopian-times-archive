@@ -12,7 +12,9 @@ const Archives = props => {
     let { issueArray } = props;
 
     let activeStyle = {
-        color: "green"
+        color: "green",
+        "text-decoration": "none",
+        cursor: "default",
       };
     
       let activeClassName = "underline"

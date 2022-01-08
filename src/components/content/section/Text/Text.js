@@ -4,15 +4,16 @@ import { Link, useLocation } from "react-router-dom";
 
 import Loading from '../../../UI/Loading';
 
-const Comic = props => {
+const Text = props => {
     let { timesData } = props;
     let params = useParams();      
     
     let getCurrentPiece = (id, array) => {
         if (array) {
-            return array.find(
+            let result = array.find(
                 piece => piece.Filename === id
             );
+            return result ? result : null;
         }
     }
     
@@ -53,29 +54,30 @@ const Comic = props => {
     let section = locationArray[2];
 
     return (
-        <div className="comic">
+        <div className="text">
     
-            {timesData ?  
-                <>
-                <Link to={`/${issue}/${section}/${prevPiece.Filename}`}>
-                       Prev: {prevPiece.Filename}
-                </Link>
-                 | 
-                <Link to={`/${issue}/${section}/${nextPiece.Filename}`}>
-                       Next: {nextPiece.Filename}
-                </Link>
-                    <h1>{piece.Name}</h1>
-                    <p>by {piece.UN[0]} {piece.UN[1]} {piece.UN[2]}</p>
-                    <p>{params.pieceId}</p>
-                    <img width="150px" height="150px" alt={piece.Name} src={piece.Image} />
-                    <div dangerouslySetInnerHTML={{__html: piece.Piece}} />
-                    {}
-                </>
-                :
-                <Loading />
+            {!timesData ?  
+                <Loading /> :
+                piece !== null ?
+                    <>
+                    <Link to={`/${issue}/${section}/${prevPiece.Filename}`}>
+                        Prev: {prevPiece.Filename}
+                    </Link>
+                    | 
+                    <Link to={`/${issue}/${section}/${nextPiece.Filename}`}>
+                        Next: {nextPiece.Filename}
+                    </Link>
+                        <h1>{piece.Name}</h1>
+                        <p>by {piece.UN[0]} {piece.UN[1]} {piece.UN[2]}</p>
+                        <p>{params.pieceId}</p>
+                        <img width="150px" height="150px" alt={piece.Name} src={piece.Image} />
+                        <div dangerouslySetInnerHTML={{__html: piece.Piece}} />
+                        {}
+                    </>
+                : <p>No piece!</p>
             }
         </div>
     );
 };
 
-export default Comic;
+export default Text;
