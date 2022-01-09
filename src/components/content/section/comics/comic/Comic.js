@@ -1,6 +1,9 @@
 import React from 'react';
 import { useParams } from "react-router-dom";
+
 import Loading from '../../../../UI/Loading';
+import PrevButton from '../../../../UI/PrevButton';
+import NextButton from '../../../../UI/NextButton';
 
 import './Comic.scss';
 
@@ -28,6 +31,9 @@ const Comic = props => {
                 <Loading /> :
                 piece !== null ? 
                     <>
+                    <PrevButton timesData={timesData} />
+                    | 
+                    <NextButton timesData={timesData} />
                         <h1>{piece.Name}</h1>
                         <p>by {piece.UN[0]} {piece.UN[1]} {piece.UN[2]}</p>
                         <p>{params.pieceId}</p>
