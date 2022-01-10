@@ -13,7 +13,7 @@ const DesktopNav = props => {
 
     return (
         <>
-           <Sidebar />
+           <Sidebar timesData={timesData} />
             <Navbar className="justify-content-center" bg="light" fixed="top">
                 <Nav className="justify-content-center">
                     <Navbar.Brand><Link to="/"><img width="40px" alt="Neopian Times Quill" src="images/nt_quill.svg" /> The Neopian Times Archive</Link></Navbar.Brand>

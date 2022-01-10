@@ -15,6 +15,8 @@ import Shorts from './components/content/section/shorts/Shorts';
 import Series from './components/content/section/series/Series';
 import Cont from './components/content/section/cont/Cont';
 import Archives from './components/content/archives/Archives';
+import About from './components/content/about/About';
+import Contact from './components/content/contact/Contact';
 
 function App() {
   const [staticTimesData, setStaticTimesData] = useState([]);
@@ -91,6 +93,8 @@ function App() {
           <Route path="archives" element={<Archives issueArray={staticIssueData.Issues} />} />
           <Route path="*" element={<Archives issueArray={staticIssueData.Issues} />} />
         </Route>
+        <Route path="about" element={<About />} />
+        <Route path="contact" element={<Contact />} />
         <Route path="archives" element={<Archives issueArray={staticIssueData.Issues} />} />
         <Route path="*" element={<Archives issueArray={staticIssueData.Issues} />} />
       </Route>

@@ -13,7 +13,7 @@ const Nav = props => {
         <div className="nav">
             <MediaQuery maxWidth={800}>
                 <MobileHeader timesData={timesData} />
-                <MobileNav />
+                <MobileNav timesData={timesData} />
             </MediaQuery>
             <MediaQuery minWidth={801}>
                 <DesktopNav timesData={timesData}  />

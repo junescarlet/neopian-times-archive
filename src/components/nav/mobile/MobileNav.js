@@ -5,9 +5,11 @@ import Nav from 'react-bootstrap/Nav';
 
 import './MobileNav.scss'
 import Sidebar from '../sidebar/Sidebar';
+//import PrevButton from '../../UI/PrevButton';
 
 
 const MobileNav = props => {
+    //let { timesData } = props; //It's all the data, needs to just be the section data for the Prev Button to work.
     const [displaySidebar, setDisplaySidebar] = useState(false);
 
     const displaySidebarHandler = () => {
@@ -27,9 +29,10 @@ const MobileNav = props => {
                         </Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
+                        {/* <PrevButton timesData={times} />   */}
                         <Nav.Link href="#">
                             <s>Prev</s>
-                        </Nav.Link>  
+                        </Nav.Link> 
                     </Nav.Item>
                     <Nav.Item>
                         <Nav.Link href="#">
