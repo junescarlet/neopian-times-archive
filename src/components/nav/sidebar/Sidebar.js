@@ -5,7 +5,6 @@ import './Sidebar.scss'
 
 const Sidebar = (props) => {
     let {timesData} = props;
-    //console.log(timesData);
     const location = useLocation();
     let locationArray = location.pathname.split("/");
     let issue = locationArray[1];

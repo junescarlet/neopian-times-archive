@@ -12,9 +12,9 @@ const MobileHeader = props => {
         <Navbar className="justify-content-center" bg="light" fixed="top">
                 <Nav className="justify-content-center">
                     <Navbar.Brand><Link to="/"><img width="40px" alt="Neopian Times Quill" src="images/nt_quill.svg" /> The Neopian Times Archive</Link></Navbar.Brand>
-                    <Nav.Link href="#">
-                            <s>#{timesData && timesData.Edition}</s>
-                        </Nav.Link>
+                    <Nav.Item>
+                        <Link to="archives">#{timesData && timesData.Edition}</Link>
+                    </Nav.Item>
                 </Nav>
             </Navbar>
     );

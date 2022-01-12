@@ -18,9 +18,7 @@ const DesktopNav = props => {
                 <Nav className="justify-content-center">
                     <Navbar.Brand><Link to="/"><img width="40px" alt="Neopian Times Quill" src="images/nt_quill.svg" /> The Neopian Times Archive</Link></Navbar.Brand>
                     <Nav.Item>
-                        <Nav.Link href="#">
-                            <s>Issue #{timesData && timesData.Edition}</s>
-                        </Nav.Link>
+                        <Link to="archives">Issue #{timesData && timesData.Edition}</Link>
                     </Nav.Item>
                     <Nav.Item>
                         <Nav.Link href="#">
@@ -29,12 +27,12 @@ const DesktopNav = props => {
                     </Nav.Item>
                 </Nav>
             </Navbar>
-            <div className="prevArrow">
+            {/* <div className="prevArrow">
                 <s>Prev</s>
             </div>
             <div className="nextArrow">
                 <s>Next</s>
-            </div>
+            </div> */}
         </>
     );
 };

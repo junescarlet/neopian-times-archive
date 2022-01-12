@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 import './Footer.scss';
 
@@ -10,6 +11,8 @@ const Footer = props => {
             <hr />
             <p>
                 &copy; 1999-{currentYear} Neopets, Inc. All rights reserved.
+                <br />
+                <Link to="/about">About</Link> | <Link to="/contact">Contact</Link>
             </p>
             
         </div>
