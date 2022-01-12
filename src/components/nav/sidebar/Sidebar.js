@@ -12,7 +12,7 @@ const Sidebar = (props) => {
     return (
         <nav className="sidebar">
             <ul>
-               <li><Link to={`/${issue}`}><s>Home</s></Link></li>
+               <li><Link to={`/${issue}`}>Home</Link></li>
                <li><Link to="archives">Archives</Link></li>
                <li><Link to="editorial">Editorial</Link></li>
                <li><Link to="articles">Articles</Link></li>
