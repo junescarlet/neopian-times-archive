@@ -4,6 +4,9 @@
 .App {
   background-color: #79beda;
   text-align: center;
+  h1 {
+    font-family: 'Sansita', sans-serif;
+  }
 }
 
 .ContentWrapper {
@@ -15,7 +18,6 @@
 }
 .IssueWrapper {
   background-color: #ffffff;
-
 }
 @media only screen and (min-width: 801px) {
   .desktopSidebarWrapper {
