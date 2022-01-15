@@ -1,12 +1,43 @@
+@use "base";
 @import "~bootstrap/scss/bootstrap.scss";
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+
+
 
 .App {
   background-color: #79beda;
   text-align: center;
   h1 {
-    font-family: 'Sansita', sans-serif;
+    font-family: "Sansita", sans-serif;
+    color: base.$decorative-font-color;
   }
+  a {
+    color: base.$decorative-font-color;
+  }
+   /* unvisited link */
+  a:link {
+    color: base.$decorative-font-color;
+    text-decoration: none;
+  }
+
+  /* visited link */
+  a:visited {
+    color: base.$decorative-font-color;
+    text-decoration: none;
+  }
+
+  /* mouse over link */
+  a:hover {
+    color: base.$secondary-font-color;
+    text-decoration: underline;
+  }
+
+  /* selected link */
+  a:active {
+    color: base.$secondary-font-color;
+    text-decoration: underline;
+  } 
 }
 
 .ContentWrapper {

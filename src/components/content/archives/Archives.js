@@ -13,7 +13,7 @@ const Archives = props => {
 
     let activeStyle = {
         color: "green",
-        "text-decoration": "none",
+        textDecoration: "none",
         cursor: "default",
       };
     
