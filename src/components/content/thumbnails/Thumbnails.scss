@@ -1,8 +1,16 @@
+.thumbnails {
+    min-height: 170px;
+    text-align: left;
+    font-size: 0.8em;
+}
+
 .thumbnails img {
     width: 150px;
     height: 150px;
+    float: left;
+    padding: 10px;
 }
 
 .thumbnails h2 {
-    font-size: 1.1em;
+    font-size: 1.2em;
 }

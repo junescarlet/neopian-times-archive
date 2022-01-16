@@ -45,7 +45,8 @@ const PrevButton = props => {
                 <Loading /> :
                 piece !== null ?
                     <Link to={`/${issue}/${section}/${prevPiece.Filename}`}>
-                        Prev: {prevPiece.Filename}
+                        {/* Prev: {prevPiece.Name} */}
+                         Prev
                     </Link>
                 : <p>No piece!</p>
             }

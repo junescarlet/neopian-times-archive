@@ -44,7 +44,8 @@ const NextButton = props => {
                 <Loading /> :
                 piece !== null ?
                     <Link to={`/${issue}/${section}/${nextPiece.Filename}`}>
-                        Next: {nextPiece.Filename}
+                        {/* Next: {nextPiece.Name} */}
+                        Next 
                     </Link>
                 : <p>No piece!</p>
             }
