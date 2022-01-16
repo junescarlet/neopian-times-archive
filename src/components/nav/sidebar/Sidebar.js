@@ -21,7 +21,7 @@ const Sidebar = (props) => {
                <li><Link to="series">New Series</Link></li>
                <li><Link to="cont">Continued Series</Link></li>
                {/* <li><s>Classic Mode</s></li> */}
-               {!timesData ?  <li><a href="https://www.neopets.com/ntimes/index.phtml" >Original</a></li> : <li><a href={timesData.Link} >Original</a></li>}
+               {!timesData ?  <li><a href="https://www.neopets.com/ntimes/index.phtml" >Original Edition</a></li> : <li><a href={timesData.Link} >Original Edition</a></li>}
                <li><Link to="/about">About</Link></li>
                <li><Link to="/contact">Contact</Link></li>
             </ul>

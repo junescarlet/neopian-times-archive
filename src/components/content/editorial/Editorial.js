@@ -10,9 +10,7 @@ const Editorial = props => {
         <>
             <h1>Editorial</h1>
             {timesData ? 
-            <p>
             <div className="editorial" dangerouslySetInnerHTML={{__html: timesData.Editorial}} />
-            </p>
             :
                 <Loading />
             }

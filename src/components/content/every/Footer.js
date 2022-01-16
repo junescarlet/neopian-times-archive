@@ -8,7 +8,6 @@ const Footer = props => {
     
     return (
         <div className="footer">
-            <hr />
             <p>
                 &copy; 1999-{currentYear} Neopets, Inc. All rights reserved.
                 <br />

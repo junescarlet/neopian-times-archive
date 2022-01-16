@@ -17,6 +17,7 @@ import Cont from './components/content/section/cont/Cont';
 import Archives from './components/content/archives/Archives';
 import About from './components/content/about/About';
 import Contact from './components/content/contact/Contact';
+import Search from './components/content/search/Search';
 
 function App() {
   const [staticTimesData, setStaticTimesData] = useState([]);
@@ -72,7 +73,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout timesData={staticTimesData} />}>
       <Route index element={<Archives issueArray={staticIssueData.Issues} />} />
-        <Route path="/:issueId" element={<IssueLayout timesData={staticTimesData} />}>   
+        <Route path="/:issueId" element={<IssueLayout timesData={timesData} />}>   
           <Route index element={<Home timesData={timesData} />} />
           {/* <Route path=":issueId" element={<Home timesData={timesData} />} /> */}
           <Route path="editorial" element={<Editorial timesData={timesData.Issue} />} />
@@ -95,6 +96,7 @@ function App() {
         </Route>
         <Route path="about" element={<About />} />
         <Route path="contact" element={<Contact />} />
+        <Route path="search" element={<Search />} />
         <Route path="archives" element={<Archives issueArray={staticIssueData.Issues} />} />
         <Route path="*" element={<Archives issueArray={staticIssueData.Issues} />} />
       </Route>
