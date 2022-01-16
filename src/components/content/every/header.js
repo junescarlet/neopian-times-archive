@@ -5,16 +5,16 @@ import './Header.scss';
 const Header = props => {
     let {timesData} = props;
     return (
-        <>
+        <div className="header">
             {timesData ? 
             <p>
-                {timesData.Neopiandate}
+            {timesData.Neopiandate} | {timesData.Date}
             </p>
             :
-                <p>Neopian Date</p>
+                <p>Date Published</p>
             }
             <hr />
-        </>
+        </div>
     );
 };
 

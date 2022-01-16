@@ -14,29 +14,29 @@
     color: base.$decorative-font-color;
   }
   a {
-    color: base.$decorative-font-color;
+    color: base.$secondary-font-color;
   }
    /* unvisited link */
   a:link {
-    color: base.$decorative-font-color;
+    color: base.$secondary-font-color;
     text-decoration: none;
   }
 
   /* visited link */
   a:visited {
-    color: base.$decorative-font-color;
+    color: base.$secondary-font-color;
     text-decoration: none;
   }
 
   /* mouse over link */
   a:hover {
-    color: base.$secondary-font-color;
+    color: base.$decorative-font-color;
     text-decoration: underline;
   }
 
   /* selected link */
   a:active {
-    color: base.$secondary-font-color;
+    color: base.$decorative-font-color;
     text-decoration: underline;
   } 
 }
