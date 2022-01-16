@@ -1,6 +1,8 @@
 import React from 'react';
 import Loading from '../../UI/Loading';
 
+import './Editorial.scss'
+
 const Editorial = props => {
     let { timesData } = props;
     
@@ -9,7 +11,7 @@ const Editorial = props => {
             <h1>Editorial</h1>
             {timesData ? 
             <p>
-            <div dangerouslySetInnerHTML={{__html: timesData.Editorial}} />
+            <div className="editorial" dangerouslySetInnerHTML={{__html: timesData.Editorial}} />
             </p>
             :
                 <Loading />

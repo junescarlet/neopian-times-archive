@@ -5,6 +5,8 @@ import Loading from '../../../UI/Loading';
 import PrevButton from '../../../UI/PrevButton';
 import NextButton from '../../../UI/NextButton';
 
+import './Text.scss';
+
 const Text = props => {
     let { timesData } = props;
     let params = useParams();      
@@ -64,10 +66,9 @@ const Text = props => {
                     <PrevButton timesData={timesData} /> | <NextButton timesData={timesData} />
                         <h1>{piece.Name}</h1>
                         <p>by {piece.UN[0]} {piece.UN[1]} {piece.UN[2]}</p>
-                        <p>{params.pieceId}</p>
                         <img width="150px" height="150px" alt={piece.Name} src={piece.Image} />
-                        <div dangerouslySetInnerHTML={{__html: piece.Piece}} />
-                        {}
+                        <div className="story" dangerouslySetInnerHTML={{__html: piece.Piece}} />
+                        <PrevButton timesData={timesData} /> | <NextButton timesData={timesData} />
                     </>
                 : <p>No piece!</p>
             }

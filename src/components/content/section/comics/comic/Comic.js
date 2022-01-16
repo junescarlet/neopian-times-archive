@@ -31,9 +31,7 @@ const Comic = props => {
                 <Loading /> :
                 piece !== null ? 
                     <>
-                    <PrevButton timesData={timesData} />
-                    | 
-                    <NextButton timesData={timesData} />
+                        <PrevButton timesData={timesData} /> | <NextButton timesData={timesData} />
                         <h1>{piece.Name}</h1>
                         <p>by {piece.UN[0]} {piece.UN[1]} {piece.UN[2]}</p>
                         <p>{params.pieceId}</p>
@@ -42,6 +40,7 @@ const Comic = props => {
                         onError={(e)=>{e.target.onerror = null; 
                         e.target.src=`archive/NT_archive_946/946/comics/${piece.Filename}.gif`}} /> 
                         {/* Uses gif if there's no jpg. Temporary solution */}
+                        <br></br><PrevButton timesData={timesData} /> | <NextButton timesData={timesData} />
                     </>
                     : <p>No piece!</p>  
             }

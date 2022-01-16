@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link, useLocation, useParams } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
 import Loading from './Loading';
 
@@ -38,18 +40,18 @@ const NextButton = props => {
     let section = locationArray[2];
 
     return (
-        <div className="text">
+        <>
     
             {!timesData ?  
                 <Loading /> :
                 piece !== null ?
                     <Link to={`/${issue}/${section}/${nextPiece.Filename}`}>
                         {/* Next: {nextPiece.Name} */}
-                        Next 
+                        Next <FontAwesomeIcon icon={faAngleRight} />
                     </Link>
                 : <p>No piece!</p>
             }
-        </div>
+        </>
     );
 };
 
