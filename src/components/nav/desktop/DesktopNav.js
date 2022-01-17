@@ -2,6 +2,8 @@ import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 import './DesktopNav.scss';
 import Sidebar from '../sidebar/Sidebar';
@@ -24,7 +26,7 @@ const DesktopNav = props => {
                     </Nav.Item>
                     <Nav.Item>
                         <Nav.Link>
-                            <Link to="search">Search</Link>
+                        <Link to="search">Search <FontAwesomeIcon icon={faSearch} /></Link>
                         </Nav.Link>
                     </Nav.Item>
                 </Nav>
