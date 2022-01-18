@@ -20,18 +20,19 @@
 .sidebar ul {
 	background-color: base.$primary-background-color;
 	padding: 0;
+	list-style-type: none;
 }
 
 .sidebar ol {
 	background-color: base.$primary-background-color;
-	padding-left: 0;
+	//padding-left: 0;
 }
 
 .sidebar li {
 	display: list-item;
 	list-style-position: inside;
 	border-bottom: 3px solid base.$decorative-font-color;
-	padding: 10px 0;
+	padding: 10px 5px;
 	margin: 0;
 }
 
