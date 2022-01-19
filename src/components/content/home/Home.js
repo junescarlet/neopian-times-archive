@@ -74,13 +74,13 @@ const Home = props => {
                     </Col>
                 </Row>
                 <Row>
-                    <Thumbnails key={getRandomPiece().Filename} sectionData={getRandomPiece()} />
+                    <Thumbnails sectionData={getRandomPiece()} />
                 </Row>
                 <Row>
-                    <Thumbnails key={getRandomPiece().Filename} sectionData={getRandomPiece()} />
+                    <Thumbnails sectionData={getRandomPiece()} />
                 </Row>
                 <Row>
-                    <Thumbnails key={getRandomPiece().Filename} sectionData={getRandomPiece()} />
+                    <Thumbnails sectionData={getRandomPiece()} />
                 </Row>
 
                 

@@ -8,7 +8,7 @@ const Header = props => {
         <div className="header">
             {timesData ? 
             <p>
-            {timesData.Neopiandate} | {timesData.Date}
+            Published: {timesData.Neopiandate} | {timesData.Date}
             </p>
             :
                 <p>Date Published</p>
