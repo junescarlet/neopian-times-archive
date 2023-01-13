@@ -1,6 +1,6 @@
 import React, { useState,  useEffect } from 'react';
 import './App.scss';
-import { Route, Routes, Outlet } from "react-router-dom";
+import { Route, Routes, Outlet, useLocation } from "react-router-dom";
 
 import Nav from './components/nav/Nav';
 import Header from './components/content/every/Header';
@@ -14,18 +14,56 @@ import Text from './components/content/section/Text/Text'
 import Shorts from './components/content/section/shorts/Shorts';
 import Series from './components/content/section/series/Series';
 import Cont from './components/content/section/cont/Cont';
+import Archives from './components/content/archives/Archives';
+import About from './components/content/about/About';
+import Contact from './components/content/contact/Contact';
+import Search from './components/content/search/Search';
 
 function App() {
   const [staticTimesData, setStaticTimesData] = useState([]);
+  const [staticIssueData, setStaticIssueData] = useState(false);
 
+  
+  const [currentIssue, setCurrentIssue] = useState([0]);
+  const location = useLocation();
+  let locationArray = location.pathname.split("/");
+  let issue = locationArray[1];
   useEffect(() => {
-    fetch("archive/NT_archive_946/946/946.json")
+    setCurrentIssue(issue)
+  }, [issue]);
+;
+  // let getCurrentIssue = (id, array) => {
+  //   if (array) {
+  //     //console.log(array.Edition, id);
+  //     return array.find(
+  //       piece => piece.Edition === id
+  //     );
+  //   }
+  // }
+ 
+  //needed for archive list only?
+  useEffect(() => {
+    fetch("archive/list_of_issues.json")
+    .then(response => response.json())
+      .then(data => { 
+        setStaticIssueData(data);
+      })
+      .catch(err =>{ console.error(err => console.error(err))}); 
+  }, []);
+
+// if (staticIssueData) {
+//   //console.log(staticIssueData);
+//   setCurrentIssue(getCurrentIssue(issue, staticIssueData));
+// }
+ 
+  useEffect(() => {
+    fetch(`archive/${currentIssue}/${currentIssue}.json`)
       .then(response => response.json())
       .then(data => { 
         setStaticTimesData(data);
       })
       .catch(err =>{ console.error(err => console.error(err))}); 
-    }, []);
+    }, [currentIssue]);
 
     const timesData = staticTimesData;
 
@@ -34,21 +72,33 @@ function App() {
     <>
     <Routes>
       <Route path="/" element={<Layout timesData={staticTimesData} />}>
-        <Route index element={<Home timesData={timesData} />} />
-        <Route path="editorial" element={<Editorial />} />
-        {/* <Route path="section" element={<Section timesData={timesData} />} >
-          <Route path=":sectionId" element={<Section />} />
-        </Route> */}
-        <Route path="comics" element={<Comics timesData={timesData.comics}/>} />
-        <Route path="comics/:pieceId" element={<Comic timesData={timesData.comics} />} />
-        <Route path="articles" element={<Articles timesData={timesData.articles}/>} />
-        <Route path="articles/:pieceId" element={<Text timesData={timesData.articles} />} />
-        <Route path="shorts" element={<Shorts timesData={timesData.shorts}/>} />
-        <Route path="shorts/:pieceId" element={<Text timesData={timesData.shorts} />} />
-        <Route path="series" element={<Series timesData={timesData.series}/>} />
-        <Route path="series/:pieceId" element={<Text timesData={timesData.series} />} />
-        <Route path="cont" element={<Cont timesData={timesData.cont}/>} />
-        <Route path="cont/:pieceId" element={<Text timesData={timesData.cont} />} />
+      <Route index element={<Archives issueArray={staticIssueData.Issues} />} />
+        <Route path="/:issueId" element={<IssueLayout timesData={timesData} />}>   
+          <Route index element={<Home timesData={timesData} />} />
+          {/* <Route path=":issueId" element={<Home timesData={timesData} />} /> */}
+          <Route path="editorial" element={<Editorial timesData={timesData.Issue} />} />
+          {/* <Route path="section" element={<Section timesData={timesData} />} >
+            <Route path=":sectionId" element={<Section />} />
+          </Route> */}
+          <Route path="comics" element={<Comics timesData={timesData.comics}/>} />
+          <Route path="comics/:pieceId" element={<Comic timesData={timesData.comics} />} />
+          
+          <Route path="articles" element={<Articles timesData={timesData.articles}/>} />
+          <Route path="articles/:pieceId" element={<Text timesData={timesData.articles} />} />
+          <Route path="shorts" element={<Shorts timesData={timesData.shorts}/>} />
+          <Route path="shorts/:pieceId" element={<Text timesData={timesData.shorts} />} />
+          <Route path="series" element={<Series timesData={timesData.series}/>} />
+          <Route path="series/:pieceId" element={<Text timesData={timesData.series} />} />
+          <Route path="cont" element={<Cont timesData={timesData.cont}/>} />
+          <Route path="cont/:pieceId" element={<Text timesData={timesData.cont} />} />
+          <Route path="archives" element={<Archives issueArray={staticIssueData.Issues} />} />
+          <Route path="*" element={<Archives issueArray={staticIssueData.Issues} />} />
+        </Route>
+        <Route path="about" element={<About />} />
+        <Route path="contact" element={<Contact />} />
+        <Route path="search" element={<Search />} />
+        <Route path="archives" element={<Archives issueArray={staticIssueData.Issues} />} />
+        <Route path="*" element={<Archives issueArray={staticIssueData.Issues} />} />
       </Route>
     </Routes>
     {/* {Object.keys(timesData).map((keyName, i) => (
@@ -67,19 +117,34 @@ function App() {
 }
 
 function Layout(props) {
-  
+  let {timesData} = props;
+
   return (
     <div className="App">
-      <Nav />
+      <Nav timesData={timesData.Issue} />
       <div className="desktopSidebarWrapper">
         <div className="ContentWrapper">
-          <Header />
+          <Header timesData={timesData.Issue} />
           <Outlet />
           
           <hr />
         <Footer />
         </div>
       </div>
+    </div>
+  );
+
+}
+
+function IssueLayout(props) {
+  let {timesData} = props;
+
+  return (
+    <div className="App">
+      <Nav timesData={timesData.Issue} />
+        <div className="IssueWrapper">
+          <Outlet />
+       </div>
     </div>
   );
 

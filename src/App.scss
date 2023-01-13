@@ -1,9 +1,47 @@
+@use "base";
 @import "~bootstrap/scss/bootstrap.scss";
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "custom";
+
+
+
 
 .App {
-  background-color: #79beda;
+  background-color: base.$secondary-background-color;
   text-align: center;
+  h1 {
+    font-family: "Sansita", sans-serif;
+    color: base.$decorative-font-color;
+  }
+  hr {
+    color: base.$decorative-font-color;
+  }
+  a {
+    color: base.$secondary-font-color;
+  }
+   /* unvisited link */
+  a:link {
+    color: base.$secondary-font-color;
+    text-decoration: none;
+  }
+
+  /* visited link */
+  a:visited {
+    color: base.$secondary-font-color;
+    text-decoration: none;
+  }
+
+  /* mouse over link */
+  a:hover {
+    color: base.$decorative-font-color;
+    text-decoration: underline;
+  }
+
+  /* selected link */
+  a:active {
+    color: base.$decorative-font-color;
+    text-decoration: underline;
+  } 
 }
 
 .ContentWrapper {
@@ -11,9 +49,11 @@
   max-width: 500px;
   width: 100%;
   margin: auto;
-  padding: 70px 0 70px 0;
+  padding: 80px 0 100px 0;
 }
-
+.IssueWrapper {
+  background-color: #ffffff;
+}
 @media only screen and (min-width: 801px) {
   .desktopSidebarWrapper {
     margin: 0 0 0 200px;

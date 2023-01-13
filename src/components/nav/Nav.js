@@ -7,15 +7,16 @@ import MobileNav from './mobile/MobileNav';
 import DesktopNav from './desktop/DesktopNav';
 
 const Nav = props => {
+    let {timesData} = props;
 
     return (
         <div className="nav">
             <MediaQuery maxWidth={800}>
-                <MobileHeader />
-                <MobileNav />
+                <MobileHeader timesData={timesData} />
+                <MobileNav timesData={timesData} />
             </MediaQuery>
             <MediaQuery minWidth={801}>
-                <DesktopNav />
+                <DesktopNav timesData={timesData}  />
             </MediaQuery>
         </div>
     );

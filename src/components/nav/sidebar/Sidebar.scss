@@ -1,6 +1,8 @@
+@use "../../../base";
+
 .sidebar {
 	position: fixed;
-	background-color: #8f8ab8;
+	background-color: base.$primary-background-color;
 	height: 100%;
 	width: 60%;
 	max-width: 200px;
@@ -16,20 +18,21 @@
 }
 
 .sidebar ul {
-	background-color: #6a62a8;
+	background-color: base.$primary-background-color;
 	padding: 0;
+	list-style-type: none;
 }
 
 .sidebar ol {
-	background-color: #ffd91d;
-	padding-left: 0;
+	background-color: base.$primary-background-color;
+	//padding-left: 0;
 }
 
 .sidebar li {
 	display: list-item;
 	list-style-position: inside;
-	border-bottom: 3px solid #acacbd;
-	padding: 10px 0;
+	border-bottom: 3px solid base.$decorative-font-color;
+	padding: 10px 5px;
 	margin: 0;
 }
 

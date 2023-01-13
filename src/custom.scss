@@ -1,0 +1,11 @@
+@use "base";
+@import "~bootstrap/scss/bootstrap";
+@import "../node_modules/bootstrap/scss/bootstrap";
+/* The following block can be included in a custom.scss */
+
+/* make the customizations */
+$theme-colors: (
+    "info": tomato,
+    "danger": teal,
+    "primary": red //base.$primary-background-color
+);

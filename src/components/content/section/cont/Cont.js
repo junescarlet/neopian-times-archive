@@ -1,4 +1,5 @@
 import React from 'react';
+import Loading from '../../../UI/Loading';
 
 //import './Cont.scss';
 import Thumbnails from '../../thumbnails/Thumbnails';
@@ -15,7 +16,7 @@ const Cont = props => {
                 {timesData ? timesData.map(piece =>
                     <Thumbnails key={piece.Filename} sectionData={piece} />
                 ) :
-                <p>Loading</p>}
+                <Loading />}
             </div>
         </Section>
     );
